@@ -1,0 +1,18 @@
+[user]
+	name = David Kane
+        email = david@kane.sh
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[diff]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+	keepBackup = false
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[tag]
+	forceSignAnnotated = true
+[pull]
+	rebase = true

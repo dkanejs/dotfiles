@@ -1,0 +1,1 @@
+ex +'g/BEGIN CERTIFICATE/,/END CERTIFICATE/p' <(echo | openssl s_client -showcerts -connect "$1") -scq

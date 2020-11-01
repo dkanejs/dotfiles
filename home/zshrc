@@ -1,0 +1,76 @@
+export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/.bin:$PATH
+export PATH=$HOME/.go/bin:$PATH
+export EDITOR=vim
+export PAGER="less -FRXS"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=true
+export SHOW_AWS_PROMPT=false
+export HOMEBREW_BUNDLE_NO_LOCK=true
+export AWS_PAGER=
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export GOPATH=$HOME/.go
+export ZSH=$HOME/.oh-my-zsh
+export AWS_SDK_LOAD_CONFIG=1
+
+ZSH_CUSTOM=$HOME/.zsh/custom
+ZSH_THEME="dotfiles"
+DISABLE_AUTO_TITLE=true
+DISABLE_AUTO_UPDATE=true
+DISABLE_UPDATE_PROMPT=true
+COMPLETION_WAITING_DOTS=true
+
+FPATH=$HOME/.zfunc:$FPATH
+
+plugins=(
+  zsh_reload
+  gpg-agent
+  git
+  aws
+  docker
+  docker-compose
+  vagrant
+  pyenv
+  nvm
+)
+
+source $ZSH/oh-my-zsh.sh
+
+complete -F __start_kubectl k
+
+for file in $HOME/.zshfunc/*; autoload -Uz $file
+
+alias cat=ccat
+alias ca=/bin/cat
+alias git="noglob git"
+alias tf=terraform
+alias k=kubectl
+alias kx=kubectx
+alias vbm=VBoxManage
+alias config-aws="$EDITOR $HOME/.aws/config"
+alias config-aws-creds="$EDITOR $HOME/.aws/credentials"
+alias config-brew="$EDITOR $HOME/.Brewfile"
+alias config-hosts="sudo $EDITOR /etc/hosts"
+alias config-git="$EDITOR $HOME/.gitconfig"
+alias config-git-ignore="$EDITOR $HOME/.gitignore"
+alias config-gpg="$EDITOR $HOME/.gnupg/gpg.conf"
+alias config-kube="$EDITOR $HOME/.kube/config"
+alias config-maven="$EDITOR $HOME/.m2/settings.xml"
+alias config-ssh="$EDITOR $HOME/.ssh/config"
+alias config-ssh-keys="$EDITOR $HOME/.gnupg/sshcontrol"
+alias config-ssh-hosts="$EDITOR $HOME/.ssh/known_hosts"
+alias config-vim="$EDITOR $HOME/.vimrc"
+alias config-zsh="$EDITOR $HOME/.zshrc"
+alias config-zsh-theme="$EDITOR $HOME/.zsh/custom/themes/dotfiles.zsh-theme"
+alias aws-whoami="aws sts get-caller-identity"
+alias wmip="curl ipv4.icanhazip.com"
+alias ap="pyenv exec ansible-playbook"
+alias env-init-python='pyenv virtualenv 3.9.1 ${PWD##*/} && pyenv local ${PWD##*/}'
+alias env-gpg-reset="gpg-connect-agent updatestartuptty /bye"
+alias env-gpg-learn="gpg-connect-agent 'scd serialno' 'learn --force' /bye"
+alias env-dns-flush="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias cdp="cd $HOME/Projects"
+alias sb="cd $HOME/Projects/sandbox"
+alias update-brew-bundle="brew bundle dump --global --force"
+alias update-brew="brew bundle cleanup --force --global && brew update && brew upgrade && brew upgrade --cask --greedy && brew cleanup"
+alias update-all="omz update && update-brew"
+

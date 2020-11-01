@@ -1,0 +1,14 @@
+= Dotfiles
+
+== Description
+
+My dotfiles and environment.
+
+Note: _You probably don't want to clone/use this as it's specific to me, but can be used as a template._
+
+Also note: _I frequently force push this repo with changes..._
+
+== Usage
+
+1. Clone repo
+1. Run `./install.sh`

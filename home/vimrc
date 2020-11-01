@@ -1,0 +1,31 @@
+syntax on
+
+let mapleader = ","
+
+set number
+set laststatus=2
+
+set wildmenu
+set wildmode=longest:full,full
+
+set viminfo+=n$HOME/.vim/viminfo
+
+set undofile
+set undodir=$HOME/.vim/undo
+
+set directory=$HOME/.vim/swap
+
+set incsearch
+set hlsearch
+
+nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
+" Move line up/down
+map - ddp
+map _ ddkP
+map _ ddkP
+
+" Git commit style
+
+au FileType gitcommit setlocal tw=72
+au FileType gitcommit setlocal cc=+1
